@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morais Piscinas - Apoio e Responsabilidade Social</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary-blue: #0056b3;
+    --dark-blue: #003366;
+    --accent-cyan: #00bcd4;
+    --white: #ffffff;
+    --light-gray: #f4f7f6;
+    --text-color: #333;
+    --whatsapp-green: #25d366;
+    --header-height: 80px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    background: var(--white);
+    padding-top: var(--header-height);
+}
+
+/* HEADER */
+header {
+    background-color: var(--primary-blue);
+    height: var(--header-height);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-container img {
+    max-height: 60px;
+    display: block;
+}
+
+/* MENU DESKTOP */
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dark-blue);
+    min-width: 180px;
+    padding: 10px 0;
+    border-radius: 4px;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--white);
+    padding: 10px 15px;
+    display: block;
+    font-weight: 400;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-blue);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+/* CABEÇALHO VISUAL */
+.hero-ano-novo {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-ano-novo img {
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    display: block;
+}
+
+/* CONTEÚDO */
+.content-page {
+    padding: 100px 5% 80px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.content-page h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    color: #555;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+
+    .nav-menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-blue);
+        padding: 80px 0 40px;
+        transition: 0.4s;
+    }
+
+    .nav-menu.active {
+        top: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .dropdown-content {
+        position: static;
+        background-color: var(--dark-blue);
+        display: none;
+        padding-left: 20px;
+    }
+
+    .dropdown.open .dropdown-content {
+        display: block;
+    }
+
+    .dropdown > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+/* ===== RODAPÉ ===== */
+footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 50px 5% 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.footer-content p,
+.footer-content a {
+    font-size: 0.95rem;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.footer-content a {
+    display: block;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.footer-content a:hover {
+    color: var(--accent-cyan);
+}
+
+.footer-brand p {
+    max-width: 300px;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: var(--accent-cyan);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 40px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="https://files.catbox.moe/74ddpz.png" alt="Morais Piscinas">
+    </div>
+
+    <div class="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="nav-menu">
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+
+            <li class="dropdown">
+                <a href="#" id="transparencia-link" onclick="return false;">
+                    Transparência <i class="fas fa-caret-down"></i>
+                </a>
+                <div class="dropdown-content">
+                    <a href="fornecedores.html">Fornecedores</a>
+                    <a href="identidade-visual.html">Identidade Visual</a>
+                    <a href="institucional.html">Institucional</a>
+                    <a href="apoio.html">Apoio</a>
+                    <a href="criacao.html">Criação</a>
+                </div>
+            </li>
+
+            <li><a href="index.html#diferenciais">Diferenciais</a></li>
+            <li><a href="index.html#servicos">Serviços</a></li>
+            <li><a href="https://wa.me/5595991137491">Comprar</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- CABEÇALHO COM IMAGEM -->
+<section class="hero-ano-novo">
+    <img src="https://files.catbox.moe/s2nfp1.jpeg" alt="Ano Novo Morais Piscinas">
+</section>
+
+<section class="content-page">
+    <h2>Responsabilidade Social e Apoio Comunitário</h2>
+    <p class="page-intro">
+        Na Morais Piscinas, acreditamos que o sucesso empresarial anda de mãos dadas com a responsabilidade social.
+    </p>
+</section>
+<footer>
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <h3>MORAIS PISCINAS</h3>
+            <p>
+                Compromisso, inovação e qualidade em cada projeto.
+                Construindo piscinas e confiança.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Institucional</h3>
+            <a href="index.html">Início</a>
+            <a href="institucional.html">Institucional</a>
+            <a href="apoio.html">Responsabilidade Social</a>
+            <a href="criacao.html">Criação</a>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contato</h3>
+            <p><i class="fab fa-whatsapp"></i> (95) 99113-7491</p>
+            <p><i class="far fa-envelope"></i> Ouvidoriatradicional@gmail.com</p>
+        </div>
+
+    <div class="copyright">
+        © 2024 Morais Piscinas — Todos os direitos reservados
+
+<h5>Este site e todo o seu conteúdo, incluindo textos, imagens e design, são protegidos por direitos autorais e não podem ser reproduzidos, distribuídos ou modificados sem permissão empresa. Para mais informações ou para solicitações de uso, acesse +55 95 99113-7491 - gerenciamento de conteúdo.</h5>
+    </div>
+<section class="hero-ano-novo">
+    <img src="https://files.catbox.moe/gaubm1.png" alt="Ano Novo Morais Piscinas">
+</section>
+
+</footer>
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+const dropdownLink = document.getElementById("transparencia-link");
+const dropdownItem = document.querySelector(".dropdown");
+
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    hamburger.querySelector("i").classList.toggle("fa-bars");
+    hamburger.querySelector("i").classList.toggle("fa-times");
+    if (!navMenu.classList.contains("active")) {
+        dropdownItem.classList.remove("open");
+    }
+});
+
+if (window.innerWidth <= 768) {
+    dropdownLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        dropdownItem.classList.toggle("open");
+    });
+}
+</script>
+
+</body>
+</html>

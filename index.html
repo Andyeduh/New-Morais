@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morais Piscinas - Seu Sonho de Lazer Entregue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --dark-blue: #003366;
+            --accent-cyan: #00bcd4;
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+            --text-color: #333;
+            --whatsapp-green: #25d366;
+            --header-height: 80px; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+            padding-top: var(--header-height);
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        .btn {
+            display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600;
+            text-transform: uppercase; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary { background-color: var(--whatsapp-green); color: var(--white); border: 2px solid var(--whatsapp-green); }
+        .btn-primary:hover { background-color: #1ebe57; transform: translateY(-2px); }
+        .btn-sm { padding: 8px 20px; font-size: 0.85rem; }
+
+        header {
+            background-color: var(--primary-blue);
+            height: var(--header-height);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container img { max-height: 60px; width: auto; display: block; }
+
+        .nav-menu ul { display: flex; align-items: center; gap: 25px; }
+        .nav-links a { color: var(--white); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--dark-blue);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 10px 0;
+            border-radius: 4px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--white);
+            padding: 10px 15px;
+            display: block;
+            text-align: left;
+            white-space: nowrap;
+        }
+        
+        .dropdown-content a:hover { background-color: var(--primary-blue); }
+
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .hamburger { display: none; cursor: pointer; color: var(--white); font-size: 1.8rem; }
+
+        .hero {
+            height: calc(100vh - var(--header-height));
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 51, 102, 0.75), rgba(0, 86, 179, 0.7)),
+                        url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); padding: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 2.8rem; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.3rem; margin-bottom: 40px; max-width: 800px; margin: auto; }
+
+        section { padding: 80px 5%; }
+        .section-title { color: var(--primary-blue); font-size: 2rem; margin-bottom: 10px; text-align: center;}
+        .section-subtitle { margin-bottom: 50px; color: #666; text-align: center;}
+
+        #diferenciais { background-color: var(--light-gray); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .feature-card {
+            padding: 30px; background: var(--white); border-radius: 10px; 
+            border: 1px solid var(--light-gray); text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem; background: var(--primary-blue); 
+            color: var(--accent-cyan); border-radius: 50%; width: 70px; 
+            height: 70px; line-height: 70px; margin: auto auto 20px;
+        }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+
+        .service-card {
+            background: var(--light-gray);
+            padding: 30px; border-radius: 10px;
+            border-bottom: 4px solid var(--accent-cyan);
+            text-align: center;
+        }
+
+        .testimonials { background: var(--primary-blue); color: white; text-align: center; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1); 
+            padding: 25px; border-radius: 8px;
+        }
+
+        .rating { color: #ffc107; }
+
+        footer {
+            background-color: var(--dark-blue); color: white;
+            padding: 40px 5% 20px; text-align: center;
+        }
+
+        /* --- CARROSSEL --- */
+        .slider {
+            width: 100%;
+            max-width: 900px;
+            height: 300px;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            object-fit: cover;
+        }
+
+        .slide.active { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu { position: fixed; top: -100%; left: 0; width: 100%; background: var(--primary-blue); padding: 80px 0; transition: 0.4s; }
+            .nav-menu.active { top: 0; }
+            .nav-menu ul { flex-direction: column; gap: 30px; }
+
+            .dropdown-content { position: static; display: none; padding-left: 20px; }
+            .dropdown.open .dropdown-content { display: block; }
+        }
+footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 50px 5% 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-slogan {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--accent-cyan);
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--accent-cyan);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-socials a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.3rem;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+.footer-socials a:hover {
+    color: var(--accent-cyan);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: unset;
+    }
+
+    .footer-socials a {
+        margin: 0 10px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://files.catbox.moe/74ddpz.png" alt="Logo Morais Piscinas">
+        </div>
+
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+
+                <li class="dropdown">
+                    <a href="#" id="transparencia-link">Transparência <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="fornecedores.html">Fornecedores</a>
+                        <a href="identidade-visual.html">Identidade Visual</a>
+                        <a href="institucional.html">Institucional</a>
+ <a href="seduc.html">Protocolo MPS-SEC-2025</a>
+                        <a href="apoio.html">Apoio</a>
+                        <a href="criacao.html">Criação</a>
+                    </div>
+                </li>
+
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="https://moraispiscinas.meloja.com.br" class="btn btn-primary btn-sm">Comprar(BETA)</a></li>
+
+                <li><a href="anonovo2026.html">2026</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Morais Piscinas: Seu Sonho de Lazer Entregue com Qualidade Incomparável.</h1>
+            <p>Do projeto à manutenção, nossa equipe especializada garante uma piscina perfeita e água cristalina, sem dores de cabeça.</p>
+            <a href="https://wa.me/5595991137491" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Solicite Seu Orçamento Grátis
+            </a>
+        </div>
+    </section>
+
+    <section id="diferenciais">
+        <h2 class="section-title">Por Que Morais Piscinas?</h2>
+        <p class="section-subtitle">Mais que serviço, é compromisso. Nossos diferenciais garantem sua satisfação.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Qualidade Superior</h3>
+                <p>Trabalhamos apenas com as melhores marcas e materiais do mercado.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3>Agilidade e Pontualidade</h3>
+                <p>Entrega no tempo certo com máxima eficiência.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+                <h3>Atendimento Especializado</h3>
+                <p>Suporte técnico completo antes e depois do serviço.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-container">
+    <div class="carousel-track">
+        <img src="https://files.catbox.moe/tlfsqq.png" class="banner">
+        <img src="https://files.catbox.moe/6rh05y.png" class="banner">
+        <img src="https://files.catbox.moe/9ipjim.jpeg" class="banner">
+        <img src="https://files.catbox.moe/m9ors5.jpeg" class="banner">
+ <img src="https://files.catbox.moe/tlfsqq.png" class="banner">
+<img src="https://files.catbox.moe/9ipjim.jpeg" class="banner">
+     </div>
+</div>
+
+<style>
+/* CONTAINER */
+.carousel-container {
+    width: 100%;
+    max-width: 1000px;   /* deixe o tamanho do banner NORMAL */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* LINHA DO CARROSSEL */
+.carousel-track {
+    display: flex;
+    animation: slide 12s infinite linear;
+}
+
+/* IMAGENS */
+.carousel-container .banner {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;       /* impede cortar */
+    object-fit: contain;  /* faz aparecer inteira sem cortar */
+    background: white;    /* remove fundo preto */
+}
+
+/* ANIMAÇÃO */
+@keyframes slide {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-100%); }
+    50%  { transform: translateX(-200%); }
+    75%  { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
+
+}
+</style>
+    <section class="testimonials">
+        <h2 class="section-title">Clientes Satisfeitos</h2>
+        <p class="section-subtitle" style="color: #ccc;">Veja o que dizem sobre nós.</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Serviço nota 10! Minha piscina nunca esteve tão limpa. Rápidos e profissionais!"</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p><strong>— João Silva</strong></p>
+            </div>
+
+            <div class="testimonial-card">
+                <p>"Instalaram minha piscina com excelência. O projeto ficou perfeito!"</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p><strong>— Maria Freitas</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <h2 class="section-title">O Que Fazemos</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-swimming-pool service-icon"></i>
+                <h3>Instalação</h3>
+                <p>Projetos personalizados.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-tools service-icon"></i>
+                <h3>Manutenção</h3>
+                <p>Equipamentos sempre novos.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-pump-soap service-icon"></i>
+                <h3>Venda de Produtos</h3>
+                <p>Tudo para sua piscina.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <div class="footer-container">
+        <!-- Logo e Slogan -->
+        <div class="footer-section">
+            <img src="https://files.catbox.moe/74ddpz.png" alt="Logo Morais Piscinas" class="footer-logo">
+            <p class="footer-slogan">Compromisso e inovação no seu lazer</p>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-section">
+            <h3>Contato</h3>
+            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5595991137491" target="_blank">(95) 99113-7491</a></p>
+            <p><i class="far fa-envelope"></i> <a href="mailto:Ouvidoriatradicional@gmail.com">Ouvidoriatradicional@gmail.com</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Boa Vista, RR</p>
+        </div>
+
+        <!-- Links Rápidos -->
+        <div class="footer-section">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="https://moraispiscinas.meloja.com.br">Comprar</a></li>
+            </ul>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="footer-section">
+            <h3>Siga-nos</h3>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/p/DI1kDMQpTHl/"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5595991137491"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2024 Morais Piscinas. Todos os direitos reservados.
+    </div>
+</footer>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const dropdownLink = document.getElementById("transparencia-link");
+        const dropdownItem = document.querySelector(".dropdown");
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            hamburger.querySelector("i").classList.toggle("fa-bars");
+            hamburger.querySelector("i").classList.toggle("fa-times");
+
+            if (!navMenu.classList.contains("active")) {
+                dropdownItem.classList.remove("open");
+            }
+        });
+
+        if (window.innerWidth <= 768) {
+            dropdownLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                dropdownItem.classList.toggle("open");
+            });
+        }
+
+        // CARROSSEL
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+
+</body>
+</html>

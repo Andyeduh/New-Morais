@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROTC - Morais Piscinas</title>
+<style>
+body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin:0; padding:0; color:#333;}
+header { background-color:#004466; color:#fff; padding:20px; text-align:center; position:relative;}
+header h1 { margin:0; font-size:1.8rem;}
+header p { margin-top:5px; font-size:1rem; }
+
+/* Menu hamburger */
+.menu-toggle { display:none; position:absolute; top:25px; left:20px; cursor:pointer; font-size:1.5rem; }
+nav { display:flex; justify-content:center; gap:20px; margin-top:10px; }
+nav a { color:#fff; text-decoration:none; font-weight:bold; }
+
+/* Menu responsivo */
+@media (max-width:600px){
+    header h1 { font-size:1.5rem; }
+    nav { display:none; flex-direction:column; background-color:#004466; position:absolute; top:70px; left:0; width:100%; padding:10px 0; }
+    nav.show { display:flex; }
+    .menu-toggle { display:block; }
+}
+
+main { max-width:900px; margin:30px auto; padding:20px; background-color:#fff; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+section { margin-bottom:20px; border-bottom:1px solid #ddd;}
+section:last-child { border-bottom:none;}
+section h2 { color:#004466; cursor:pointer; padding:10px 0; position:relative; margin:0;}
+section h2::after { content:'+'; position:absolute; right:0; font-size:1.2rem; transition: transform 0.3s;}
+section.active h2::after { content:'-';}
+.content { display:none; padding:10px 0 20px 0; line-height:1.6;}
+ul { padding-left:20px;}
+footer { background-color:#004466; color:#fff; text-align:center; padding:15px;}
+footer a { color:#fff; text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+    <div class="menu-toggle">&#9776;</div>
+    <h1>PROTC - Morais Piscinas</h1>
+    <p>Protocolo Estratégico Nacional de Segurança Cibernética e Proteção de Dados Pessoais</p>
+    <nav>
+        <a href="index.html">voltar ao site </a>    
+   </nav>
+</header>
+
+<main>
+<section id="informacoes">
+    <h2>Informações do Protocolo</h2>
+    <div class="content">
+        <h1>Protocolo Estratégico Nacional de Segurança Cibernética, Proteção de Dados Pessoais, Monitoramento Contínuo e Continuidade Operacional do Portal Digital e Sistemas Associados da Morais Piscinas</h1>
+        <h4>O Protocolo Estratégico Nacional de Segurança Cibernética, Proteção de Dados Pessoais, Monitoramento Contínuo e Continuidade Operacional do Portal Digital e Sistemas Associados da Morais Piscinas é um conjunto de diretrizes e procedimentos elaborados para garantir a máxima segurança digital do site e de todos os sistemas associados à empresa. Seu objetivo principal é proteger dados corporativos e informações pessoais de clientes contra ataques cibernéticos, invasões, falhas de sistema e qualquer tipo de perda de informação, garantindo a continuidade operacional do portal digital.</h4>
+        <h4>O protocolo define claramente quando deve ser aplicado, incluindo rotinas de monitoramento diário, atualização de sistemas e plugins, além de situações em que comportamentos suspeitos são identificados. Também estabelece os responsáveis, como o administrador do site e a equipe de TI, garantindo que cada procedimento seja executado por profissionais capacitados e comprometidos com a segurança.</h4>
+        <h4>Entre as principais medidas previstas pelo protocolo estão o uso de senhas fortes e autenticação em dois fatores (2FA), certificados SSL ativos para comunicação segura via HTTPS, backups diários e externos, atualizações constantes de sistemas e plugins, além de firewalls e monitoramento de ataques em tempo real. Todos os formulários e uploads são validados para prevenir scripts e arquivos maliciosos, reforçando a proteção de dados.</h4>
+        <h4>O protocolo detalha a infraestrutura de servidores e criptografia de dados, explicando que o site da Morais Piscinas está hospedado em servidores internacionais de alta segurança, com monitoramento 24/7, redundância e armazenamento externo de backups. Todos os dados pessoais são criptografados utilizando padrões modernos, como AES-256, garantindo máxima proteção e confiabilidade.</h4>
+        <h4>Em caso de incidente, o protocolo orienta ações imediatas, como colocar o site em modo manutenção, identificar e isolar a falha, restaurar backups seguros, trocar senhas comprometidas e registrar o incidente para análise futura. O resultado esperado é um site estável e seguro, com dados protegidos, confiança dos clientes mantida e riscos de incidentes cibernéticos minimizados.</h4>
+        <h4>O Protocolo representa o compromisso da empresa com a segurança da informação, transparência e responsabilidade digital, garantindo aos clientes e usuários que seus dados são tratados de forma segura e confiável.</h4>
+    </div>
+</section>
+
+<section id="objetivo">
+    <h2>Objetivo</h2>
+    <div class="content">
+        <p>Proteger o site e sistemas digitais da Morais Piscinas contra invasões, perda de dados, ataques e incidentes de segurança.</p>
+    </div>
+</section>
+
+<section id="quando">
+    <h2>Quando Aplicar</h2>
+    <div class="content">
+        <ul>
+            <li>Rotina diária de monitoramento</li>
+            <li>Após atualizações do site ou plugins</li>
+            <li>Ao identificar comportamento suspeito ou incidentes</li>
+        </ul>
+    </div>
+</section>
+
+<section id="responsaveis">
+    <h2>Responsáveis</h2>
+    <div class="content">
+        <p>Administrador do site / equipe de TI responsável pela manutenção e segurança digital.</p>
+    </div>
+</section>
+
+<section id="procedimentos">
+    <h2>Procedimentos de Segurança</h2>
+    <div class="content">
+        <ul>
+            <li>Senhas fortes e autenticação em dois fatores (2FA)</li>
+            <li>Certificado SSL ativo (HTTPS)</li>
+            <li>Backups diários e externos</li>
+            <li>Atualizações de sistema e plugins sempre aplicadas</li>
+            <li>Firewall, monitoramento de ataques e CAPTCHA em formulários</li>
+            <li>Validação de uploads e prevenção de scripts maliciosos</li>
+        </ul>
+    </div>
+</section>
+
+<section id="servidores">
+    <h2>Servidores e Dados Criptografados</h2>
+    <div class="content">
+        <p>O site da Morais Piscinas está hospedado em servidores internacionais de alta segurança, com monitoramento 24/7. Todos os dados pessoais coletados são criptografados utilizando padrões modernos (AES-256 e HTTPS). A infraestrutura garante redundância e backups externos, minimizando riscos de perda de informação.</p>
+    </div>
+</section>
+
+<section id="incidente">
+    <h2>Em Caso de Incidente</h2>
+    <div class="content">
+        <ul>
+            <li>Colocar o site em modo manutenção</li>
+            <li>Identificar e isolar a falha</li>
+            <li>Restaurar backup seguro</li>
+            <li>Trocar todas as senhas</li>
+            <li>Registrar o incidente para controle interno</li>
+        </ul>
+    </div>
+</section>
+
+<section id="resultado">
+    <h2>Resultado Esperado</h2>
+    <div class="content">
+        <p>Site estável, dados protegidos, confiança do cliente mantida e riscos minimizados.</p>
+    </div>
+</section>
+
+<section id="apoio">
+    <h2>Apoio Legal e Regulatório</h2>
+    <div class="content">
+        <h4>• Ministério da Justiça e Segurança Pública → participou da elaboração da LGPD e dá suporte técnico e regulatório para políticas de proteção de dados.</h4>
+        <h4>• ANPD (Autoridade Nacional de Proteção de Dados) → órgão ligado à Presidência e ao Ministério da Justiça, responsável por fiscalização e orientação de protocolos de proteção de dados.</h4>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    &copy; 2025 Morais Piscinas - Todos os direitos reservados
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section');
+sections.forEach(section => {
+    section.querySelector('h2').addEventListener('click', () => {
+        section.classList.toggle('active');
+        const content = section.querySelector('.content');
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+});
+
+// Menu hamburger
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+});
+</script>
+</body>
+</html>

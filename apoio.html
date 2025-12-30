@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morais Piscinas - Apoio e Responsabilidade Social</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS --- */
+        :root {
+            --primary-blue: #0056b3; 
+            --dark-blue: #003366;    
+            --accent-cyan: #00bcd4;  
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+            --text-color: #333;
+            --whatsapp-green: #25d366;
+            --header-height: 80px; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+            padding-top: var(--header-height);
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600;
+            text-transform: uppercase; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary { background-color: var(--whatsapp-green); color: var(--white); border: 2px solid var(--whatsapp-green); }
+        .btn-primary:hover { background-color: #1ebe57; transform: translateY(-2px); }
+        .btn-sm { padding: 8px 20px; font-size: 0.85rem; }
+
+        /* --- HEADER E MENU --- */
+        header {
+            background-color: var(--primary-blue);
+            height: var(--header-height);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* ESTILO DA LOGO */
+        .logo-container img { max-height: 60px; width: auto; display: block; }
+
+        /* Menu Desktop */
+        .nav-menu ul { display: flex; align-items: center; gap: 25px; }
+        .nav-links a { color: var(--white); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        /* Item do Menu Dropdown */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--dark-blue);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 10px 0;
+            border-radius: 4px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--white);
+            padding: 10px 15px;
+            display: block;
+            text-align: left;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Ícone Hambúrguer */
+        .hamburger { display: none; cursor: pointer; color: var(--white); font-size: 1.8rem; }
+
+        /* --- CONTEÚDO DA PÁGINA (PÁGINA APOIO) --- */
+        .content-page {
+            padding: 100px 5% 80px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content-page h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .page-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            color: #555;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .support-card {
+            padding: 30px;
+            border-radius: 8px;
+            background-color: var(--light-gray);
+            border-top: 4px solid var(--whatsapp-green);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .support-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .support-card a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .support-card a:hover {
+            color: var(--accent-cyan);
+        }
+        
+        /* --- FOOTER --- */
+        footer { background-color: var(--dark-blue); color: var(--white); padding: 40px 5% 20px; text-align: center; }
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; color: #aaa; }
+
+        /* --- WHATSAPP FLUTUANTE --- */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .hamburger { display: block; z-index: 1001; }
+            .nav-menu { position: fixed; top: -100%; left: 0; width: 100%; background-color: var(--primary-blue); padding: 80px 0 40px; transition: 0.4s; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+            .nav-menu.active { top: 0; }
+            .nav-menu ul { flex-direction: column; gap: 30px; }
+            .dropdown-content { position: static; background-color: var(--dark-blue); padding: 10px 0 0 20px; width: 100%; display: none; }
+            .dropdown.open .dropdown-content { display: block; }
+            .dropdown > a { cursor: pointer; position: relative; display: flex; justify-content: space-between; align-items: center; }
+            .dropdown > a:after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 0.8rem; margin-left: 10px; }
+            .support-grid { grid-template-columns: 1fr; }
+            .content-page { padding: 100px 5% 50px; }
+            .content-page h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://files.catbox.moe/74ddpz.png" alt="Logo Morais Piscinas">
+        </div>
+
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;" id="transparencia-link" style="color: var(--accent-cyan);">Transparência <i class="fas fa-caret-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+                    <div class="dropdown-content">
+                        <a href="fornecedores.html">Fornecedores</a>
+                        <a href="identidade-visual.html">Identidade Visual</a>
+                        <a href="institucional.html">Institucional</a>
+                        <a href="apoio.html" style="background-color: var(--primary-blue);">Apoio</a><a href="seduc.html">Protocolo MPS-SEC-2025</a>
+                        <a href="criacao.html">Criação</a>
+                    </div>
+                </li>
+                <li><a href="index.html#diferenciais">Diferenciais</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="https://wa.me/5595991137491" class="btn btn-primary btn-sm">Comprar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content-page">
+        <h2>Responsabilidade Social e Apoio Comunitário</h2>
+        <p class="page-intro">
+            Na Morais Piscinas, acreditamos que o sucesso empresarial anda de mãos dadas com a responsabilidade social. Por isso, apoiamos iniciativas que transformam nossa comunidade.
+        </p>
+
+        <div class="support-grid">
+            
+            <div class="support-card">
+                <h3><i class="fas fa-hands-holding-heart"></i> ANDEP – Agência Nacional de Desenvolvimento Empresarial do Setor de Piscinas  </h3>
+                <p>criado para apoiar empresas do setor de piscinas em tudo que envolve digitalização, regulamentação técnica e desenvolvimento de mercado.</p>
+                <p style="margin-top: 15px;">Saiba mais: <a href="#">[Link para o Projeto]</a></p>
+            </div>
+
+            <div class="support-card">
+                <h3><i class="fas fa-leaf"></i> Secretaria de Desenvolvimento Digital para Empresas de Piscinas</h3>
+                <p>vinculada ao Ministério da Inovação e Tecnologia, responsável por apoiar a transformação digital das empresas que atuam no setor de piscinas.</p>
+                <p style="margin-top: 15px;">Dicas de economia: <a href="#">[Link para Dicas]</a></p>
+            </div>
+  <div class="support-card">
+                <h3><i class="fas fa-leaf"></i> MINDEP – Ministério Nacional de Inovação e Desenvolvimento do Setor de Piscinas</h3>
+                <p>responsável por formular e executar políticas públicas voltadas para o avanço tecnológico, regulatório e empresarial do setor de piscinas no Brasil.</p>
+                <p style="margin-top: 15px;">Dicas de economia: <a href="#">[Link para Dicas]</a></p>
+       
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>MORAIS PISCINAS</h3>
+                <p>Compromisso e inovação é aqui.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contato</h3>
+                <p><i class="fab fa-whatsapp"></i> (95) 99113-7491</p>
+                <p><i class="far fa-envelope"></i> contato@moraispiscinas.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Morais Piscinas.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5595991137491" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLinks = document.querySelectorAll(".nav-links a");
+        const dropdownLink = document.getElementById("transparencia-link");
+        const dropdownItem = document.querySelector(".dropdown");
+
+        // Toggle do Menu Hambúrguer (Mantido para todas as páginas)
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            hamburger.querySelector("i").classList.toggle("fa-bars");
+            hamburger.querySelector("i").classList.toggle("fa-times");
+            if (!navMenu.classList.contains("active")) {
+                dropdownItem.classList.remove("open");
+            }
+        });
+
+        // Toggle do Dropdown no Mobile
+        if (window.innerWidth <= 768) {
+            dropdownLink.addEventListener("click", (e) => {
+                e.preventDefault(); 
+                dropdownItem.classList.toggle("open");
+            });
+        }
+
+        // Fechar menu ao clicar em qualquer link
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove("active");
+                    hamburger.querySelector("i").classList.remove("fa-times");
+                    hamburger.querySelector("i").classList.add("fa-bars");
+                    dropdownItem.classList.remove("open");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
