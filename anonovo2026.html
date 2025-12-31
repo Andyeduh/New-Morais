@@ -14,20 +14,19 @@
     --dark-blue: #003366;
     --accent-cyan: #00bcd4;
     --white: #ffffff;
-    --light-gray: #f4f7f6;
+    --gold: #FFD700;
     --text-color: #333;
-    --whatsapp-green: #25d366;
     --header-height: 80px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
-
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family:'Open Sans',sans-serif;
     color: var(--text-color);
-    background: var(--white);
+    background: linear-gradient(to bottom, var(--white), var(--gold));
     padding-top: var(--header-height);
+    position: relative;
 }
 
 /* HEADER */
@@ -35,236 +34,86 @@ header {
     background-color: var(--primary-blue);
     height: var(--header-height);
     padding: 0 5%;
-    display: flex;
+    display:flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:center;
     position: fixed;
     width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
-
-.logo-container img {
-    max-height: 60px;
-    display: block;
+.logo-container img{ max-height:60px; display:block;}
+.nav-menu ul{ display:flex; align-items:center; gap:25px; list-style:none;}
+.nav-links a{ color: var(--white); font-weight:600; font-size:0.95rem; text-decoration:none; transition:0.3s;}
+.nav-links a:hover{ color: var(--accent-cyan);}
+.dropdown{ position:relative;}
+.dropdown-content{
+    display:none; position:absolute; background-color:var(--dark-blue);
+    min-width:180px; padding:10px 0; border-radius:4px; top:100%; left:0; z-index:1;
 }
+.dropdown-content a{ color:var(--white); padding:10px 15px; display:block; font-weight:400;}
+.dropdown-content a:hover{ background-color:var(--primary-blue);}
+.dropdown:hover .dropdown-content{ display:block;}
+.hamburger{ display:none; cursor:pointer; color:var(--white); font-size:1.8rem; }
 
-/* MENU DESKTOP */
-.nav-menu ul {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    list-style: none;
+/* HERO */
+.hero-ano-novo{ width:100%; display:flex; justify-content:center; }
+.hero-ano-novo img{ width:100%; max-width:1400px; height:auto; display:block; }
+
+/* CONTAGEM REGRESSIVA */
+.countdown{
+    text-align:center; padding:50px 5%; position:relative; overflow:hidden;
 }
-
-.nav-links a {
-    color: var(--white);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s;
-    text-decoration: none;
+.countdown h2{ font-size:2rem; color: var(--primary-blue); margin-bottom:20px; }
+.countdown p{
+    font-size:2.5rem; font-weight:bold;
+    color:#fff; background-image:url('https://files.catbox.moe/kmy3gq.jpeg');
+    background-size:cover; -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    display:inline-block; padding:10px 20px; border-radius:10px;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.3);
 }
-
-.nav-links a:hover {
-    color: var(--accent-cyan);
-}
-
-/* DROPDOWN */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--dark-blue);
-    min-width: 180px;
-    padding: 10px 0;
-    border-radius: 4px;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: var(--white);
-    padding: 10px 15px;
-    display: block;
-    font-weight: 400;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--primary-blue);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* HAMBURGER */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    color: var(--white);
-    font-size: 1.8rem;
-}
-
-/* CABEÇALHO VISUAL */
-.hero-ano-novo {
-    width: 100%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-ano-novo img {
-    width: 100%;
-    max-width: 1400px;
-    height: auto;
-    display: block;
+#confetti-canvas{
+    position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;
 }
 
 /* CONTEÚDO */
-.content-page {
-    padding: 100px 5% 80px;
-    max-width: 1000px;
-    margin: auto;
-}
+.content-page{ padding:50px 5% 80px; max-width:1000px; margin:auto; }
+.content-page h2{ font-size:2.5rem; color:var(--primary-blue); margin-bottom:20px; text-align:center; }
+.page-intro{ text-align:center; font-size:1.1rem; margin-bottom:50px; color:#555; }
 
-.content-page h2 {
-    font-size: 2.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 20px;
-    text-align: center;
-}
+/* RODAPÉ */
+footer{ background-color:var(--dark-blue); color:var(--white); padding:50px 5% 20px;}
+.footer-content{ max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; text-align:left;}
+.footer-content h3{ font-family:'Montserrat',sans-serif; font-size:1.1rem; margin-bottom:15px; color:var(--white);}
+.footer-content p, .footer-content a{ font-size:0.95rem; color:#ddd; line-height:1.6;}
+.footer-content a{ display:block; margin-bottom:8px; transition:0.3s;}
+.footer-content a:hover{ color: var(--accent-cyan);}
+.footer-brand p{ max-width:300px;}
+.footer-contact i{ margin-right:8px; color:var(--accent-cyan);}
+.copyright{ border-top:1px solid rgba(255,255,255,0.15); margin-top:40px; padding-top:15px; text-align:center; font-size:0.8rem; color:#aaa; }
 
-.page-intro {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 50px;
-    color: #555;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .hamburger { display: block; }
-
-    .nav-menu {
-        position: fixed;
-        top: -100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary-blue);
-        padding: 80px 0 40px;
-        transition: 0.4s;
-    }
-
-    .nav-menu.active {
-        top: 0;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .dropdown-content {
-        position: static;
-        background-color: var(--dark-blue);
-        display: none;
-        padding-left: 20px;
-    }
-
-    .dropdown.open .dropdown-content {
-        display: block;
-    }
-
-    .dropdown > a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-/* ===== RODAPÉ ===== */
-footer {
-    background-color: var(--dark-blue);
-    color: var(--white);
-    padding: 50px 5% 20px;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    text-align: left;
-}
-
-.footer-content h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--white);
-}
-
-.footer-content p,
-.footer-content a {
-    font-size: 0.95rem;
-    color: #ddd;
-    line-height: 1.6;
-}
-
-.footer-content a {
-    display: block;
-    margin-bottom: 8px;
-    transition: 0.3s;
-}
-
-.footer-content a:hover {
-    color: var(--accent-cyan);
-}
-
-.footer-brand p {
-    max-width: 300px;
-}
-
-.footer-contact i {
-    margin-right: 8px;
-    color: var(--accent-cyan);
-}
-
-.copyright {
-    border-top: 1px solid rgba(255,255,255,0.15);
-    margin-top: 40px;
-    padding-top: 15px;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #aaa;
- }
+@media(max-width:768px){
+    .hamburger{ display:block;}
+    .nav-menu{ position:fixed; top:-100%; left:0; width:100%; background-color:var(--primary-blue); padding:80px 0 40px; transition:0.4s;}
+    .nav-menu.active{ top:0; }
+    .nav-menu ul{ flex-direction:column; gap:30px;}
+    .dropdown-content{ position:static; background-color:var(--dark-blue); display:none; padding-left:20px; }
+    .dropdown.open .dropdown-content{ display:block;}
+    .dropdown>a{ display:flex; justify-content:space-between; align-items:center; }
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo-container">
-        <img src="https://files.catbox.moe/74ddpz.png" alt="Morais Piscinas">
-    </div>
-
-    <div class="hamburger">
-        <i class="fas fa-bars"></i>
-    </div>
-
+    <div class="logo-container"><img src="https://files.catbox.moe/74ddpz.png" alt="Morais Piscinas"></div>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
     <nav class="nav-menu">
         <ul class="nav-links">
             <li><a href="index.html">Início</a></li>
-
             <li class="dropdown">
-                <a href="#" id="transparencia-link" onclick="return false;">
-                    Transparência <i class="fas fa-caret-down"></i>
-                </a>
+                <a href="#" id="transparencia-link" onclick="return false;">Transparência <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown-content">
                     <a href="fornecedores.html">Fornecedores</a>
                     <a href="identidade-visual.html">Identidade Visual</a>
@@ -273,7 +122,6 @@ footer {
                     <a href="criacao.html">Criação</a>
                 </div>
             </li>
-
             <li><a href="index.html#diferenciais">Diferenciais</a></li>
             <li><a href="index.html#servicos">Serviços</a></li>
             <li><a href="https://wa.me/5595991137491">Comprar</a></li>
@@ -281,28 +129,55 @@ footer {
     </nav>
 </header>
 
-<!-- CABEÇALHO COM IMAGEM -->
 <section class="hero-ano-novo">
     <img src="https://files.catbox.moe/s2nfp1.jpeg" alt="Ano Novo Morais Piscinas">
 </section>
 
-<section class="content-page">
-    <h2>Responsabilidade Social e Apoio Comunitário</h2>
-    <p class="page-intro">
-        Na Morais Piscinas, acreditamos que o sucesso empresarial anda de mãos dadas com a responsabilidade social.
-    </p>
+<section class="countdown">
+    <h2>Feliz Ano Novo!</h2>
+    <p id="timer">Carregando...</p>
+    <canvas id="confetti-canvas"></canvas>
 </section>
+
+<section class="content-page">
+    <h2>Feliz Ano Novo! Um Brinde a Novos Começos e Conquistas!</h2>
+    <p class="page-intro">
+        À medida que nos despedimos de mais um ano, é impossível não refletir sobre tudo o que conquistamos juntos. Cada piscina construída, cada projeto entregue, cada sorriso de satisfação de nossos clientes e parceiros nos lembra do compromisso que temos com qualidade, inovação e responsabilidade. Na Morais Piscinas, acreditamos que nosso sucesso é construído com trabalho duro, dedicação e, acima de tudo, com respeito às pessoas e à comunidade que nos cerca.
+
+Este ano foi repleto de desafios, mas também de grandes aprendizados. Superamos obstáculos, encontramos soluções criativas e nos fortalecemos como equipe. Cada vitória, seja grande ou pequena, é motivo de celebração. Mais do que números ou estatísticas, nosso maior orgulho está nas relações que cultivamos, na confiança que conquistamos e no impacto positivo que conseguimos gerar em nossa sociedade.
+
+Enquanto nos preparamos para o novo ano, renovamos nossa promessa de seguir trabalhando com ética, responsabilidade e paixão pelo que fazemos. O Ano Novo é uma oportunidade para recomeços, para definir novas metas e para olhar para o futuro com otimismo. Que 2026 seja um ano de realizações ainda maiores, de novas parcerias, de crescimento sustentável e de muitas conquistas para todos que fazem parte da família Morais Piscinas.
+
+Além de cuidar de cada detalhe técnico, reforçamos nosso compromisso com a responsabilidade social e apoio comunitário, porque acreditamos que o verdadeiro sucesso vai além do lucro: ele está em transformar vidas, apoiar causas e contribuir para uma sociedade mais justa e próspera. Por isso, cada projeto entregue carrega não apenas qualidade, mas também um propósito de bem-estar coletivo.
+
+Neste Ano Novo, convidamos todos os nossos clientes, colaboradores, parceiros e amigos a celebrarmos juntos as conquistas e a nos inspirarmos para alcançar ainda mais. Que a virada de ano traga energia, esperança, criatividade e coragem para enfrentar novos desafios. Que cada momento seja vivido com gratidão, e que cada sonho seja buscado com determinação.
+
+De toda a equipe Morais Piscinas, desejamos a você e sua família um Ano Novo repleto de saúde, alegria, prosperidade e momentos inesquecíveis. Que cada dia de 2026 seja iluminado, e que possamos continuar construindo, juntos, não apenas piscinas, mas também confiança, felicidade e histórias memoráveis.
+
+Feliz Ano Novo! Que venha 2026 com muito sucesso, brilho e novas oportunidades!</p>
+<h2>Construindo um Futuro Sustentável: Nosso Compromisso com o Meio Ambiente</h2>
+<p>Na Morais Piscinas, acreditamos que o verdadeiro sucesso não é medido apenas pela qualidade dos nossos projetos, mas também pelo impacto que geramos no planeta e na comunidade ao nosso redor. Cada decisão que tomamos, cada material que utilizamos e cada processo que implementamos são pensados para reduzir nossa pegada ambiental e promover um futuro mais sustentável.
+
+O cuidado com o meio ambiente é responsabilidade de todos, e, por isso, buscamos integrar práticas sustentáveis em todas as etapas do nosso trabalho. Desde a escolha de materiais recicláveis e de baixo impacto, até o uso eficiente da água e da energia, cada detalhe é planejado para minimizar desperdícios e maximizar benefícios para a natureza e para a sociedade.
+
+Mas sustentabilidade vai além de processos internos: envolve também educação, conscientização e ações comunitárias. Por isso, participamos de projetos de conscientização ambiental, apoiamos iniciativas locais de preservação e incentivamos clientes e parceiros a adotarem práticas que contribuam para a proteção do planeta. Nosso objetivo é inspirar uma cultura de responsabilidade ambiental que se estenda muito além do canteiro de obras.
+
+Cada piscina que construímos, cada projeto entregue, carrega consigo um compromisso com o equilíbrio entre conforto, estética e sustentabilidade. Sabemos que o futuro depende das escolhas que fazemos hoje, e queremos ser parte da solução, não do problema.
+
+Acreditamos que pequenas ações, quando somadas, geram grandes impactos. Por isso, incentivamos o uso de tecnologias que economizam água, promovem reciclagem e reduzem o consumo de energia. Cada cliente, cada parceiro e cada colaborador que se junta a nós nessa jornada ajuda a fortalecer essa visão e a construir um futuro mais verde, limpo e saudável para todos.
+
+Nosso compromisso vai além do presente: é uma promessa para as próximas gerações. Queremos que nossos filhos, netos e comunidades futuras vivam em um mundo onde a sustentabilidade não seja apenas uma escolha, mas um valor essencial.
+
+Convidamos você a fazer parte dessa transformação. Juntos, podemos construir não apenas piscinas de excelência, mas também um planeta mais equilibrado, saudável e sustentável. Porque na Morais Piscinas, responsabilidade e inovação caminham de mãos dadas com o cuidado com o meio ambiente.
+</p>
+</section>
+
 <footer>
     <div class="footer-content">
-
         <div class="footer-brand">
             <h3>MORAIS PISCINAS</h3>
-            <p>
-                Compromisso, inovação e qualidade em cada projeto.
-                Construindo piscinas e confiança.
-            </p>
+            <p>Compromisso, inovação e qualidade em cada projeto. Construindo piscinas e confiança.</p>
         </div>
-
         <div class="footer-links">
             <h3>Institucional</h3>
             <a href="index.html">Início</a>
@@ -310,44 +185,115 @@ footer {
             <a href="apoio.html">Responsabilidade Social</a>
             <a href="criacao.html">Criação</a>
         </div>
-
         <div class="footer-contact">
             <h3>Contato</h3>
             <p><i class="fab fa-whatsapp"></i> (95) 99113-7491</p>
             <p><i class="far fa-envelope"></i> Ouvidoriatradicional@gmail.com</p>
         </div>
-
+    </div>
     <div class="copyright">
         © 2024 Morais Piscinas — Todos os direitos reservados
-
-<h5>Este site e todo o seu conteúdo, incluindo textos, imagens e design, são protegidos por direitos autorais e não podem ser reproduzidos, distribuídos ou modificados sem permissão empresa. Para mais informações ou para solicitações de uso, acesse +55 95 99113-7491 - gerenciamento de conteúdo.</h5>
+        <h5>Este site e todo o seu conteúdo, incluindo textos, imagens e design, são protegidos por direitos autorais e não podem ser reproduzidos sem permissão.</h5>
     </div>
 <section class="hero-ano-novo">
     <img src="https://files.catbox.moe/gaubm1.png" alt="Ano Novo Morais Piscinas">
 </section>
 
 </footer>
+
 <script>
+// Menu hambúrguer
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const dropdownLink = document.getElementById("transparencia-link");
 const dropdownItem = document.querySelector(".dropdown");
-
 hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
     hamburger.querySelector("i").classList.toggle("fa-bars");
     hamburger.querySelector("i").classList.toggle("fa-times");
-    if (!navMenu.classList.contains("active")) {
-        dropdownItem.classList.remove("open");
-    }
+    if(!navMenu.classList.contains("active")) dropdownItem.classList.remove("open");
 });
+if(window.innerWidth <=768) dropdownLink.addEventListener("click", e=>{ e.preventDefault(); dropdownItem.classList.toggle("open"); });
 
-if (window.innerWidth <= 768) {
-    dropdownLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        dropdownItem.classList.toggle("open");
-    });
+// Contagem regressiva e confete
+const newYear = new Date("January 1, 2026 00:00:00").getTime();
+const timerEl = document.getElementById("timer");
+const canvas = document.getElementById("confetti-canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let confettiParticles = [];
+
+function createConfetti(){
+    const colors=["#ff0","#f00","#0f0","#0ff","#f0f"];
+    for(let i=0;i<150;i++){
+        confettiParticles.push({
+            x: Math.random()*canvas.width,
+            y: Math.random()*-canvas.height,
+            r: Math.random()*6+2,
+            d: Math.random()*50+10,
+            color: colors[Math.floor(Math.random()*colors.length)],
+            tilt: Math.random()*10-10,
+            tiltAngleIncrement: Math.random()*0.07+0.05,
+            tiltAngle:0
+        });
+    }
 }
+
+function drawConfetti(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<confettiParticles.length;i++){
+        let p=confettiParticles[i];
+        ctx.beginPath();
+        ctx.lineWidth=p.r/2;
+        ctx.strokeStyle=p.color;
+        ctx.moveTo(p.x+p.tilt+p.r/4,p.y);
+        ctx.lineTo(p.x+p.tilt,p.y+p.tilt+p.r/4);
+        ctx.stroke();
+    }
+    updateConfetti();
+}
+
+function updateConfetti(){
+    for(let i=0;i<confettiParticles.length;i++){
+        let p=confettiParticles[i];
+        p.tiltAngle+=p.tiltAngleIncrement;
+        p.y+=(Math.cos(p.d)+3+p.r/2)/2;
+        p.x+=Math.sin(p.d);
+        p.tilt=Math.sin(p.tiltAngle)*15;
+        if(p.y>canvas.height){
+            confettiParticles[i]={...p,y:-10};
+        }
+    }
+}
+
+let countdown=setInterval(()=>{
+    const now=new Date().getTime();
+    const distance=newYear-now;
+
+    const days=Math.floor(distance/(1000*60*60*24));
+    const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds=Math.floor((distance%(1000*60))/1000);
+
+    timerEl.innerHTML=`${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    if(distance<=0){
+        clearInterval(countdown);
+        timerEl.innerHTML="Feliz Ano Novo!";
+        createConfetti();
+        (function animate(){
+            drawConfetti();
+            requestAnimationFrame(animate);
+        })();
+    }
+},1000);
+
+window.addEventListener("resize", ()=>{
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+});
 </script>
 
 </body>
